@@ -5,7 +5,7 @@ import pytest
 from src.mutations import bit_flip, swap_index
 
 
-def test_bit_flip_empty_chromosome_returns_empty_chromosome():
+def test_bit_flip_empty_chromosome_raises_value_error():
     with pytest.raises(ValueError):
         bit_flip([])
 
