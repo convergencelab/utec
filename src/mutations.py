@@ -17,4 +17,3 @@ def bit_flip(chromosome):
     index = randrange(0, len(chromosome))
     chromosome[index] = type(chromosome[index])(not chromosome[index])
     return chromosome
-
