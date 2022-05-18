@@ -41,4 +41,3 @@ def test_swap_index_arbitrary_chromosome_returns_correctly_mutated_chromosome(ra
     chromosome = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     expected = [0, 1, 6, 3, 4, 5, 2, 7, 8, 9]
     assert expected == swap_index(chromosome)
-
