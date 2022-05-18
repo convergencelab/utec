@@ -14,7 +14,7 @@ def bit_flip(chromosome):
     :return: Copy of the mutated chromosome
     """
     chromosome = deepcopy(chromosome)
-    index = randrange(0, len(chromosome))
+    index = randrange(len(chromosome))
     chromosome[index] = type(chromosome[index])(not chromosome[index])
     return chromosome
 
