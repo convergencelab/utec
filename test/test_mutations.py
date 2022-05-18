@@ -5,6 +5,11 @@ import pytest
 from src.mutations import bit_flip, inversion, swap_index
 
 
+def test_bit_flip_does_not_return_same_object():
+    chromosome = [0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+    assert chromosome is not bit_flip(chromosome)
+
+
 def test_bit_flip_empty_chromosome_raises_value_error():
     with pytest.raises(ValueError):
         bit_flip([])
@@ -24,6 +29,11 @@ def test_bit_flip_arbitrary_chromosome_returns_correctly_mutated_chromosome(rand
     chromosome = [0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
     expected = [0, 1, 0, 1, 0, 0, 0, 1, 0, 1]
     assert expected == bit_flip(chromosome)
+
+
+def test_inversion_does_not_return_same_object():
+    chromosome = [0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+    assert chromosome is not inversion(chromosome)
 
 
 def test_inversion_empty_chromosome_raises_value_error():
@@ -65,6 +75,11 @@ def test_inversion_arbitrary_chromosome_returns_correctly_mutated_chromosome(ran
     chromosome = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     expected = [0, 4, 3, 2, 1, 5, 6, 7, 8, 9]
     assert expected == inversion(chromosome)
+
+
+def test_swap_index_does_not_return_same_object():
+    chromosome = [0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+    assert chromosome is not swap_index(chromosome)
 
 
 def test_swap_index_empty_chromosome_raises_value_error():
