@@ -22,7 +22,8 @@ def bit_flip(chromosome):
 def swap_index(chromosome):
     """
     Select two indices from the chromosome and swap their contents. This mutation is ideal for chromosomes of
-    permutations of unique values.
+    permutations of unique values. It is possible that the same index is selected twice. This situation is ignored and
+    will result in an unchanged chromosome. 
 
         For example, if indices 2 and 5 are selected
             [a, b, c, d, e, f, g] -> [a, b, f, d, e, c, g]

@@ -29,7 +29,7 @@ def test_bit_flip_arbitrary_chromosome_returns_correctly_mutated_chromosome(rand
 def test_swap_index_empty_chromosome_raises_value_error():
     with pytest.raises(ValueError):
         swap_index([])
-        
+
 
 def test_swap_index_size_one_chromosome_returns_equal_chromosome():
     assert [99] == swap_index([99])
