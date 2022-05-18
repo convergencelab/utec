@@ -17,3 +17,21 @@ def bit_flip(chromosome):
     index = randrange(0, len(chromosome))
     chromosome[index] = type(chromosome[index])(not chromosome[index])
     return chromosome
+
+
+def swap_index(chromosome):
+    """
+    Select two indices from the chromosome and swap their contents. This mutation is ideal for chromosomes of
+    permutations of unique values.
+
+        For example, if indices 2 and 5 are selected
+            [a, b, c, d, e, f, g] -> [a, b, f, d, e, c, g]
+
+    :param chromosome: Individual chromosome to be mutated.
+    :return: Copy of the mutated chromosome
+    """
+    chromosome = deepcopy(chromosome)
+    index_one = randrange(len(chromosome))
+    index_two = randrange(len(chromosome))
+    chromosome[index_one], chromosome[index_two] = chromosome[index_two], chromosome[index_one]
+    return chromosome
