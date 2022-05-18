@@ -22,11 +22,35 @@ def bit_flip(chromosome: Sequence) -> Sequence:
     return chromosome
 
 
+def inversion(chromosome: Sequence) -> Sequence:
+    """
+    Perform inversion mutation. Select two indices and reverse the order of the elements between them. The starting
+    index is included in the reversal, but the ending index is excluded (start, end]. This mutation is ideal for
+    chromosomes of permutations of values. It is possible for indices to be identical or adjacent. This situation is
+    ignored and will result in an unchanged chromosome.
+
+        For example, if indices 1 and 5 are selected
+            [a, b, c, d, e, f, g] -> [a, e, d, c, b, f, g]
+
+    :param chromosome: Individual chromosome to be mutated.
+    :type chromosome: Sequence
+    :return: Copy of the mutated chromosome
+    :rtype: Sequence
+    """
+    chromosome = deepcopy(chromosome)
+    index_one = randrange(len(chromosome))
+    index_two = randrange(len(chromosome))
+    start_index = min(index_one, index_two)
+    end_index = max(index_one, index_two)
+    chromosome[start_index:end_index] = chromosome[start_index:end_index][::-1]
+    return chromosome
+
+
 def swap_index(chromosome: Sequence) -> Sequence:
     """
     Select two indices from the chromosome and swap their contents. This mutation is ideal for chromosomes of
-    permutations of unique values. It is possible that the same index is selected twice. This situation is ignored and
-    will result in an unchanged chromosome.
+    permutations of values. It is possible that the same index is selected twice. This situation is ignored and will
+    result in an unchanged chromosome.
 
         For example, if indices 2 and 5 are selected
             [a, b, c, d, e, f, g] -> [a, b, f, d, e, c, g]
