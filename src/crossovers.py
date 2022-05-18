@@ -26,4 +26,3 @@ def one_point(chromosome_one: Sequence, chromosome_two: Sequence) -> Sequence:
     index = randrange(len(chromosome_one))
     chromosome_one[index:], chromosome_two[index:] = chromosome_two[index:], chromosome_one[index:]
     return chromosome_one, chromosome_two
-
