@@ -19,6 +19,8 @@ def one_point(chromosome_one: Sequence, chromosome_two: Sequence) -> Sequence:
     :return: The two offspring resulting from the crossover.
     :rtype: Tuple of Sequences (Sequence, Sequence)
     """
+    if len(chromosome_one) != len(chromosome_two):
+        raise ValueError("chromosomes must be of equal length")
     chromosome_one = deepcopy(chromosome_one)
     chromosome_two = deepcopy(chromosome_two)
     index = randrange(len(chromosome_one))
